@@ -1,0 +1,78 @@
+<div class="container">
+    <section class="text-center">
+        <div class="card">
+            <div class="card-body px-md-5">
+                <div class="row justify-content-center">
+                    <img class="imagem position-absolute" src="https://cdn.discordapp.com/attachments/1007072574959783968/1255885292003659867/Social_ideas-rafiki.png?ex=667ec1d2&is=667d7052&hm=afb81f59138443ed141621a403866305aff5b84751fa0f5918f0edc1297d8196&" alt="">
+                    <img class="imagem2 position-absolute" src="https://cdn.discordapp.com/attachments/1007072574959783968/1255963985954476062/Investor_presentation-rafiki.png?ex=667f0b1c&is=667db99c&hm=ce96e92ac03f23f081512df16aa011ee660ddefea3a2fe2caa69cce6aee7452f&" alt="">
+                    <div class="col-lg-8">
+                        <h2 class="titulo fw-bold mb-5">Cadastro de cliente</h2>
+                        <form>
+                            <div class="row mb-4">
+                                <div class="form-group">
+                                    <input type="text" id="nome" class="form-control" placeholder=" " [(ngModel)]="cliente.nome" name="nome" />
+                                    <label for="nome">ㅤNome</label>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <input type="text" class="form-control" placeholder=" " [(ngModel)]="cliente.telefone" name="telefone" />
+                                        <label for="telefone">Telefone</label>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <input type="text" class="form-control" placeholder=" " [(ngModel)]="cliente.email" name="email" />
+                                        <label for="email">Email</label>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <input type="text" class="form-control" placeholder=" " [(ngModel)]="cliente.cpf" name="cpf" />
+                                        <label for="cpf">CPF</label>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <input type="text" class="form-control" placeholder=" " [(ngModel)]="cliente.rg" name="rg" />
+                                        <label for="rg">RG</label>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-6 mb-4">
+                                    <div class="form-group">
+                                        <input type="date" class="form-control" placeholder=" " [(ngModel)]="cliente.nascimento" name="nascimento" />
+                                        <label for="nascimento">Data de Nascimento</label>
+                                    </div>
+                                </div>
+                                <div class="col-md-6 mb-4">
+                                    <div class="form-group">
+                                        <input type="text" class="form-control" placeholder=" " [(ngModel)]="cliente.profissao" name="profissao" />
+                                        <label for="profissao">Profissão</label>
+                                    </div>
+                                </div>
+                            </div>
+                            <br>
+                            <button type="submit" class="btn btn-primary" routerLink="/admin/cliente">Voltar</button>
+                            <button 
+                            [disabled]="
+                            cliente.nome == null || 
+                            cliente.telefone == null || 
+                            cliente.email == null || 
+                            cliente.nascimento == null || 
+                            cliente.profissao == null || 
+                            cliente.rg == null || 
+                            cliente.cpf == null 
+                            "type="submit" class="btn btn-primary" (click)="save()">Cadastrar</button>
+                            <div class="text-center"></div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</div>

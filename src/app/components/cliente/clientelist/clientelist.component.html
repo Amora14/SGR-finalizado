@@ -1,0 +1,64 @@
+<div class="container container2">
+  <div class="row">
+      <div class="col-lg-12">
+          <div class="card">
+              <div class="card-body">
+                  <h3>Listagem de clientes cadastrados:</h3>
+                  <br>
+                  <table class="table table-striped">
+                      <thead>
+                          <tr>
+                                <th>Nomeㅤ</th>
+                                <th>Apartamento</th>
+                                <th>Contrato</th>
+                                <th>Valor alguel</th>
+                                <th>Data de entrada</th>
+                                <div class="direita">
+                                    <button type="button" class="btn btn-info" data-mdb-ripple-init routerLink="/admin/cliente/new">Novo</button>
+                                </div>
+                          </tr>
+                      </thead>
+                      <tbody>
+                      
+                      @for (cliente of lista; track $index) {
+                      
+                          <tr>
+                              <td>{{cliente.nome}}</td>
+                              <td>
+                                  @for (contrato of cliente.contratos; track $index) {
+                                      <b>{{contrato.ap.aparnum}}</b><br>
+                                  }
+                              </td>
+                              <td>
+                                  @for (contrato of cliente.contratos; track $index) {
+                                     @if(contrato.status){
+                                      <b style="color: green;">{{contrato.identificador}}</b><br>
+                                     }@else {
+                                      <b style="color: red;">Inativo</b><br>
+                                     }
+                                  }
+                              </td>
+                              <td>
+                                  @for (contrato of cliente.contratos; track $index) {
+                                  <b>R$</b> {{+contrato.valor_condominio + +contrato.valor_aluguel + +contrato.valor_internet + +contrato.valor_iptu}}<br>
+                                  }
+                              </td>
+                              <td>
+                                @for (contrato of cliente.contratos; track $index) {
+                                <b>{{contrato.entrada}}</b><br>
+                                }
+                            </td>
+                              <td class="direita">
+                                  <button type="button" class="btn btn-info" [routerLink]="['/admin/cliente/', cliente.id]">Informações</button>
+                                  <button type="button" class="btn btn-danger" data-mdb-ripple-init (click)="deletar(cliente)">Deletar</button>
+                              </td>
+                          </tr>
+                      }
+
+                      </tbody>
+                  </table>
+              </div>
+          </div>
+      </div>
+  </div>
+</div>
